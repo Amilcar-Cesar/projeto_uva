@@ -1,13 +1,29 @@
 :root {
-  color: #0d1b1c;
-  background-color: #f2efe9;
-  font-family: 'Trebuchet MS', 'Gill Sans', 'Lucida Sans', sans-serif;
+  color: #1b1431;
+  background-color: #f6f1ff;
+  font-family: 'Space Grotesk', 'Segoe UI', 'Helvetica Neue', sans-serif;
   line-height: 1.5;
   font-weight: 400;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  --lavender-50: #f8f5ff;
+  --lavender-100: #efe8ff;
+  --lavender-200: #e3d6ff;
+  --lavender-300: #cfb6ff;
+  --lavender-500: #9a66ff;
+  --lavender-600: #7c3aed;
+  --lavender-700: #5b23c8;
+  --ink-900: #1b1431;
+  --ink-700: #342a4f;
+  --ink-500: #53486f;
+  --surface: rgba(255, 255, 255, 0.9);
+  --surface-strong: #ffffff;
+  --border-soft: rgba(126, 98, 180, 0.2);
+  --shadow-soft: 0 22px 40px rgba(46, 25, 80, 0.12);
+  --font-body: 'Space Grotesk', 'Segoe UI', 'Helvetica Neue', sans-serif;
+  --font-display: 'Plus Jakarta Sans', 'Segoe UI', 'Helvetica Neue', sans-serif;
 }
 
 * {
@@ -17,7 +33,17 @@
 body {
   margin: 0;
   min-height: 100vh;
-  background: radial-gradient(circle at top, #f8f3e8 0%, #efe7d6 48%, #e6ded0 100%);
+  background:
+    radial-gradient(circle at top left, rgba(154, 102, 255, 0.18), transparent 55%),
+    radial-gradient(circle at 70% 10%, rgba(210, 180, 255, 0.35), transparent 50%),
+    linear-gradient(180deg, #fbf9ff 0%, #f3efff 45%, #efe9ff 100%);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
 }
 
 #app {
@@ -37,7 +63,7 @@ body {
   width: 520px;
   height: 520px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(255, 200, 120, 0.45), rgba(255, 200, 120, 0));
+  background: radial-gradient(circle, rgba(154, 102, 255, 0.28), rgba(154, 102, 255, 0));
   z-index: 0;
 }
 
@@ -49,7 +75,7 @@ body {
 .page::after {
   bottom: -240px;
   left: -180px;
-  background: radial-gradient(circle, rgba(95, 180, 170, 0.4), rgba(95, 180, 170, 0));
+  background: radial-gradient(circle, rgba(207, 182, 255, 0.4), rgba(207, 182, 255, 0));
 }
 
 .hero {
@@ -65,12 +91,12 @@ body {
   letter-spacing: 0.32em;
   font-size: 0.75rem;
   font-weight: 700;
-  color: #b05a32;
+  color: var(--lavender-600);
   margin: 0 0 1rem;
 }
 
 .hero__title {
-  font-family: 'Georgia', 'Times New Roman', serif;
+  font-family: var(--font-display);
   font-size: clamp(2.4rem, 5vw, 4rem);
   margin: 0 0 0.8rem;
   line-height: 1.05;
@@ -79,7 +105,7 @@ body {
 .hero__subtitle {
   font-size: 1.1rem;
   margin: 0 0 2rem;
-  color: #2d4a4a;
+  color: var(--ink-500);
 }
 
 .hero__stats {
@@ -92,12 +118,12 @@ body {
   display: block;
   font-size: 1.8rem;
   font-weight: 700;
-  color: #0f5257;
+  color: var(--lavender-700);
 }
 
 .hero__label {
   font-size: 0.95rem;
-  color: #4c6a6a;
+  color: var(--ink-500);
 }
 
 .content {
@@ -109,21 +135,23 @@ body {
 }
 
 .panel {
-  background: rgba(255, 255, 255, 0.82);
+  background: var(--surface);
   border-radius: 24px;
   padding: 2rem;
-  box-shadow: 0 24px 48px rgba(15, 52, 52, 0.15);
+  box-shadow: var(--shadow-soft);
   backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
 }
 
 .panel__header h2 {
   margin: 0 0 0.4rem;
   font-size: 1.6rem;
+  font-weight: 700;
 }
 
 .panel__header p {
   margin: 0 0 1.6rem;
-  color: #335454;
+  color: var(--ink-500);
 }
 
 .course-grid {
@@ -137,8 +165,8 @@ body {
   border: 1px solid transparent;
   border-radius: 18px;
   padding: 1.2rem 1.3rem;
-  background: #fff;
-  box-shadow: 0 12px 24px rgba(35, 72, 72, 0.12);
+  background: var(--surface-strong);
+  box-shadow: 0 10px 22px rgba(57, 36, 94, 0.12);
   transition: transform 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
   animation: fadeUp 0.5s ease-out forwards;
@@ -146,13 +174,13 @@ body {
 
 .course-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(176, 90, 50, 0.4);
-  box-shadow: 0 18px 30px rgba(35, 72, 72, 0.18);
+  border-color: rgba(124, 58, 237, 0.35);
+  box-shadow: 0 18px 30px rgba(57, 36, 94, 0.18);
 }
 
 .course-card--selected {
-  border-color: #0f5257;
-  background: linear-gradient(120deg, rgba(214, 242, 232, 0.9), #ffffff);
+  border-color: var(--lavender-600);
+  background: linear-gradient(120deg, rgba(231, 218, 255, 0.9), #ffffff);
 }
 
 .course-card__header {
@@ -165,18 +193,19 @@ body {
 .course-card__header h3 {
   margin: 0;
   font-size: 1.1rem;
+  font-weight: 600;
 }
 
 .course-card p {
   margin: 0.8rem 0 1rem;
-  color: #3e5f5f;
+  color: var(--ink-500);
 }
 
 .course-card__meta {
   display: flex;
   gap: 1rem;
   font-size: 0.9rem;
-  color: #557171;
+  color: var(--ink-500);
 }
 
 .pill {
@@ -185,8 +214,8 @@ body {
   justify-content: center;
   padding: 0.2rem 0.6rem;
   border-radius: 999px;
-  background: #ffe0c7;
-  color: #7a3a1c;
+  background: rgba(154, 102, 255, 0.18);
+  color: var(--lavender-700);
   font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -202,20 +231,20 @@ body {
   display: grid;
   gap: 0.4rem;
   font-weight: 600;
-  color: #234848;
+  color: var(--ink-700);
 }
 
 .field input {
-  border: 1px solid rgba(31, 85, 85, 0.2);
+  border: 1px solid var(--border-soft);
   border-radius: 14px;
   padding: 0.85rem 1rem;
   font-size: 1rem;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.95);
 }
 
 .field input:focus {
-  outline: 3px solid rgba(15, 82, 87, 0.2);
-  border-color: rgba(15, 82, 87, 0.6);
+  outline: 3px solid rgba(124, 58, 237, 0.2);
+  border-color: rgba(124, 58, 237, 0.6);
 }
 
 .primary {
@@ -224,7 +253,8 @@ body {
   padding: 0.9rem 1.2rem;
   font-size: 1rem;
   font-weight: 700;
-  background: linear-gradient(120deg, #0f5257, #2e8d82);
+  font-family: var(--font-display);
+  background: linear-gradient(120deg, #7c3aed, #b38bff);
   color: #fff;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -239,7 +269,7 @@ body {
 
 .primary:not(:disabled):hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(15, 82, 87, 0.2);
+  box-shadow: 0 10px 20px rgba(124, 58, 237, 0.25);
 }
 
 .state {
@@ -247,18 +277,18 @@ body {
   padding: 0.85rem 1rem;
   border-radius: 12px;
   font-size: 0.95rem;
-  background: rgba(15, 82, 87, 0.08);
-  color: #0f5257;
+  background: rgba(124, 58, 237, 0.08);
+  color: var(--lavender-700);
 }
 
 .state--error {
-  background: rgba(170, 62, 62, 0.1);
-  color: #9b2f2f;
+  background: rgba(186, 74, 120, 0.12);
+  color: #8f2b56;
 }
 
 .state--success {
-  background: rgba(44, 131, 77, 0.12);
-  color: #1f6a3b;
+  background: rgba(92, 196, 154, 0.18);
+  color: #1f6a4e;
 }
 
 @keyframes slideIn {
